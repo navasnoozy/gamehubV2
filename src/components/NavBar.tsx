@@ -6,7 +6,7 @@ import Theme from "./theme";
 
 const NavBar = ()=>{
     return (
-        <HStack  >
+        <HStack justifyContent={"space-between"} >
             <Image src={logo} boxSize={"60px"} ></Image>
               <Text>search bar</Text>
               <Theme />

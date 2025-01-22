@@ -1,7 +1,8 @@
 // App.tsx file
 
-import { Grid, GridItem, Separator, Text } from "@chakra-ui/react";
+import { Grid, GridItem,Text } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import GamesGrid from "./components/GamesGrid";
 
 const App = () => {
   return (
@@ -15,12 +16,12 @@ const App = () => {
         <NavBar />
       </GridItem>
 
-      <GridItem hideBelow={"lg"} area={"sidebar"} bg={"black"}>
+      <GridItem hideBelow={"lg"} area={"sidebar"} >
         sidebar
       </GridItem>
 
       <GridItem area={"main"} bg={"black"} color={"white"}>
-        main
+        <GamesGrid />
       </GridItem>
     </Grid>
   );

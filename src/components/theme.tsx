@@ -1,22 +1,9 @@
 // Theme.tsx file
 
-import {
-  ColorModeButton,
-  useColorMode,
-  useColorModeValue,
-} from "@/components/ui/color-mode"
-
-
-import { Button } from "@chakra-ui/react"
-
+import { ColorModeButton } from "@/components/ui/color-mode";
 
 const Theme = () => {
-  const { toggleColorMode } = useColorMode()
-  return (
-    <Button variant="outline" onClick={toggleColorMode}>
-      Toggle Mode
-    </Button>
-  )
-}
+  return <ColorModeButton />;
+};
 
-  export default Theme;
+export default Theme;
