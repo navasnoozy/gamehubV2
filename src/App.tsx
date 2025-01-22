@@ -1,4 +1,6 @@
-import { Grid, GridItem, Text } from "@chakra-ui/react";
+// App.tsx file
+
+import { Grid, GridItem, Separator, Text } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -13,11 +15,11 @@ const App = () => {
         <NavBar />
       </GridItem>
 
-      <GridItem hideBelow={"lg"} area={"sidebar"} bg={"blue.200"}>
+      <GridItem hideBelow={"lg"} area={"sidebar"} bg={"black"}>
         sidebar
       </GridItem>
 
-      <GridItem area={"main"} bg={"red"}>
+      <GridItem area={"main"} bg={"black"} color={"white"}>
         main
       </GridItem>
     </Grid>
