@@ -1,20 +1,21 @@
 // useGames.tsx file
-import apiClient from "@/services/api-Client";
+import apiClient from "../../services/api-Client";
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
-interface Games {
+export interface GameType {
   id: number;
   name: string;
+  background_image : string;
 }
 
 interface GamesListType {
   count: number;
-  results: Games[];
+  results: GameType[];
 }
 
 const useGames = () => {
-  const [games, setGames] = useState<Games[]>([]);
+  const [games, setGames] = useState<GameType[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
