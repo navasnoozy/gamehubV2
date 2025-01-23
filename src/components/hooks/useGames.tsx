@@ -13,7 +13,8 @@ export interface GameType {
   id: number;
   name: string;
   background_image : string;
-  parent_platforms : {platform : platformType}[]
+  parent_platforms : {platform : platformType}[];
+  metacritic: number;
 }
 
 interface GamesListType {
