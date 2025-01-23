@@ -3,10 +3,17 @@ import apiClient from "../../services/api-Client";
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
+export interface platformType {
+  id : number;
+  name : string;
+  slug : string;
+}
+
 export interface GameType {
   id: number;
   name: string;
   background_image : string;
+  parent_platforms : {platform : platformType}[]
 }
 
 interface GamesListType {
