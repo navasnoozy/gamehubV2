@@ -1,7 +1,5 @@
 // useGames.tsx file
-import apiClient from "../../services/api-Client";
-import { CanceledError } from "axios";
-import { useEffect, useState } from "react";
+import useData from "./useData";
 
 export interface platformType {
   id: number;
@@ -17,35 +15,7 @@ export interface GameType {
   metacritic: number;
 }
 
-interface GamesListType {
-  count: number;
-  results: GameType[];
-}
 
-const useGames = () => {
-  const [games, setGames] = useState<GameType[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    setLoading(true);
-
-    apiClient
-      .get<GamesListType>("/games", { signal: controller.signal })
-      .then((res) => {
-        setGames(res.data.results);
-        setLoading(false)
-      })
-      .catch((error) => {
-        if (error instanceof CanceledError) return;
-        setError(error.message);
-        setLoading(false)
-      });
-    return () => controller.abort();
-  }, []);
-
-  return { games, error , isLoading };
-};
+const useGames = ()=> useData<GameType>('/games');
 
 export default useGames;
