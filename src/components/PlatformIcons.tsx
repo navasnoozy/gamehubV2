@@ -1,3 +1,7 @@
+interface propsType {
+  platforms: platformType[];
+}
+
 import {
   FaWindows,
   FaPlaystation,
@@ -13,9 +17,7 @@ import { platformType } from "./hooks/useGames";
 import { IconType } from "react-icons";
 import { HStack, Icon } from "@chakra-ui/react";
 
-interface propsType {
-  platforms: platformType[];
-}
+
 
 const PlatformIconsList = ({ platforms }: propsType) => {
   const iconMap: { [key: string]: IconType } = {

@@ -1,19 +1,20 @@
 // GenreList.tsx file
+interface PropsType {
+  onSelectGenre : (genre: GenreType)=>void;
+  selectedGenre : GenreType | null;
+}
 
 import { Button, HStack, Image, List } from "@chakra-ui/react";
 import useGenre, { GenreType } from "./hooks/useGenre";
 import CropImageUrl from "@/services/URLImageCrop";
 import { GenreSkeleton } from "./Skeletons";
 
-interface PropsType {
-  onSelectGenre : (genre: GenreType)=>void;
-  selectedGenre : GenreType | null;
-}
+
 
 
 const GenreList = ({selectedGenre, onSelectGenre}:PropsType) => {
   const { data, isLoading, error } = useGenre();
-  console.log('data he',data);
+
   
   if(!data) return;
   if (error) return;

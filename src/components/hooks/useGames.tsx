@@ -1,6 +1,4 @@
 // useGames.tsx file
-import useData from "./useData";
-import { GenreType } from "./useGenre";
 
 export interface platformType {
   id: number;
@@ -16,7 +14,12 @@ export interface GameType {
   metacritic: number;
 }
 
+import useData from "./useData";
+import { GenreType } from "./useGenre";
+
 const useGames = (selectedGenre: GenreType | null) =>
-  useData<GameType>("/games", { params: { genres: selectedGenre?.id } },[selectedGenre?.id]);
+  useData<GameType>("/games", { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
 
 export default useGames;
