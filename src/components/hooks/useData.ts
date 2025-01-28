@@ -1,7 +1,7 @@
 //  useData.tsx file
  
  import apiClient from "@/services/api-Client";
-import { CanceledError } from "axios";
+import { AxiosRequestConfig, CanceledError } from "axios";
  import { useEffect, useState } from "react";
  
 
@@ -11,7 +11,7 @@ import { CanceledError } from "axios";
    results: T[];
  }
  
- const useData = <T> (endpoint: string) => {
+ const useData = <T> (endpoint: string, requestConfig?: AxiosRequestConfig, deps? : any[]) => {
    const [data, setData] = useState<T[]>([]);
    const [error, setError] = useState("");
    const [isLoading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ import { CanceledError } from "axios";
      const controller = new AbortController();
      setLoading(true);
      apiClient
-       .get<FetchedResType<T>>(endpoint,{signal: controller.signal})
+       .get<FetchedResType<T>>(endpoint,{signal: controller.signal, ...requestConfig})
        .then((res) => {
          setData(res.data.results);
          setLoading(false);
@@ -31,7 +31,7 @@ import { CanceledError } from "axios";
          setLoading(false);
        });
        return ()=> controller.abort()
-   },[endpoint]);
+   },deps? [...deps]: []);
    return { data, error, isLoading };
  };
 
