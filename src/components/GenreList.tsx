@@ -7,12 +7,15 @@ import { GenreSkeleton } from "./Skeletons";
 
 interface PropsType {
   onSelectGenre : (genre: GenreType)=>void;
+  selectedGenre : GenreType | null;
 }
 
 
-const GenreList = ({onSelectGenre}:PropsType) => {
+const GenreList = ({selectedGenre, onSelectGenre}:PropsType) => {
   const { data, isLoading, error } = useGenre();
-
+  console.log('data he',data);
+  
+  if(!data) return;
   if (error) return;
 
   const loadingCount = [1, 2, 3, 4,5,6,7,8];
@@ -23,14 +26,14 @@ const GenreList = ({onSelectGenre}:PropsType) => {
     <List.Root>
       {isLoading && loadingCount.map((skeleton) => <GenreSkeleton key={skeleton} />)}
       {data.map((genre) => (
-        <List.Item key={genre.id} as="ul">
-          <HStack my={2}>
+        <List.Item key={genre.id} as="ul" >
+          <HStack my={2} borderBottomWidth={selectedGenre=== genre ? '1px': ''}>
             <Image
               boxSize="42px"
               borderRadius="22px"
               src={CropImageUrl(genre.image_background)}
             ></Image>
-            <Button onClick={()=>onSelectGenre(genre)} variant="ghost" fontSize="lg" mx={1}>
+            <Button fontWeight={selectedGenre===genre? 'bold': 'normal'} onClick={()=>onSelectGenre(genre)} variant="ghost" fontSize="lg" mx={1}>
               {genre.name}
             </Button>
           </HStack>
