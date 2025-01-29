@@ -42,7 +42,7 @@ const App = () => {
           selectedPlatform={selectedPlatform}
           onFilterByPlatform={(platform) => setSelectedPlatform(platform)}
         />
-        <GameGrid selectedGenre={selectedGenre} />
+        <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
   );

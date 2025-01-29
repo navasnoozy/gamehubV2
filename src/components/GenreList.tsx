@@ -15,9 +15,8 @@ import { GenreSkeleton } from "./Skeletons";
 const GenreList = ({selectedGenre, onSelectGenre}:PropsType) => {
   const { data, isLoading, error } = useGenre();
 
-  
-  if(!data) return;
-  if (error) return;
+  // if(!data) return;
+  if (error) return null;
 
   const loadingCount = [1, 2, 3, 4,5,6,7,8];
 

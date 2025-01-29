@@ -1,3 +1,5 @@
+// useGenre.tsx file 
+
 export interface GenreType {
   id: number;
   name: string;

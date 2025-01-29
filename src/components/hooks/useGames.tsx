@@ -12,14 +12,19 @@ export interface GameType {
   background_image: string;
   parent_platforms: { platform: platformType }[];
   metacritic: number;
+};
+
+interface PropsType {
+  selectedGenre : GenreType | null;
+  selectedPlatform : platformType | null;
 }
 
 import useData from "./useData";
 import { GenreType } from "./useGenre";
 
-const useGames = (selectedGenre: GenreType | null) =>
-  useData<GameType>("/games", { params: { genres: selectedGenre?.id } }, [
-    selectedGenre?.id,
+const useGames = ({selectedGenre, selectedPlatform}: PropsType) =>
+  useData<GameType>("/games", { params: { genres: selectedGenre?.id , platforms: selectedPlatform?.id } }, [
+    selectedGenre?.id, selectedPlatform?.id
   ]);
 
 export default useGames;

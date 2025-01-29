@@ -1,3 +1,5 @@
+// PlatformIconsList.tsx file
+
 interface propsType {
   platforms: platformType[];
 }
@@ -11,13 +13,11 @@ import {
   FaAndroid,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+import { SiNintendo, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { platformType } from "./hooks/useGames";
 import { IconType } from "react-icons";
 import { HStack, Icon } from "@chakra-ui/react";
-
-
 
 const PlatformIconsList = ({ platforms }: propsType) => {
   const iconMap: { [key: string]: IconType } = {
@@ -30,6 +30,7 @@ const PlatformIconsList = ({ platforms }: propsType) => {
     ios: MdPhoneIphone,
     nintendo: SiNintendo,
     web: BsGlobe,
+    sega: SiSega,
   };
 
   return (
@@ -39,7 +40,7 @@ const PlatformIconsList = ({ platforms }: propsType) => {
           key={platform.id}
           mx="1px"
           color="gray.500"
-          as={iconMap[platform.slug]}
+          as={iconMap[platform.slug.toLowerCase()]}
           fontSize="2xl"
         />
       ))}

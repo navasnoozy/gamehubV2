@@ -1,16 +1,17 @@
 // GamesGrid.tsx file
 interface PropsType {
   selectedGenre: GenreType | null;
+  selectedPlatform : platformType | null;
 }
 
 import { Heading, SimpleGrid } from "@chakra-ui/react";
-import useGames from "./hooks/useGames";
+import useGames, { platformType } from "./hooks/useGames";
 import GameCard from "./GameCard";
 import { GameCardSkeletons } from "./Skeletons";
 import { GenreType } from "./hooks/useGenre";
 
-const GameGrid = ({ selectedGenre }: PropsType) => {
-  const { data, error, isLoading } = useGames(selectedGenre);
+const GameGrid = ({ selectedGenre, selectedPlatform }: PropsType) => {
+  const { data, error, isLoading } = useGames({selectedGenre,selectedPlatform});
   const SkeletonCount = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
