@@ -14,17 +14,14 @@ export interface GameType {
   metacritic: number;
 };
 
-interface PropsType {
-  selectedGenre : GenreType | null;
-  selectedPlatform : platformType | null;
-}
 
+import { GameQueryType } from "@/App";
 import useData from "./useData";
-import { GenreType } from "./useGenre";
 
-const useGames = ({selectedGenre, selectedPlatform}: PropsType) =>
-  useData<GameType>("/games", { params: { genres: selectedGenre?.id , platforms: selectedPlatform?.id } }, [
-    selectedGenre?.id, selectedPlatform?.id
+
+const useGames = (gameQuery: GameQueryType) =>
+  useData<GameType>("/games", { params: { genres: gameQuery.genre?.id , platforms: gameQuery.platform?.id } }, [
+    gameQuery
   ]);
 
 export default useGames;
