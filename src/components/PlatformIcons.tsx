@@ -35,7 +35,7 @@ const PlatformIconsList = ({ platforms }: propsType) => {
 
   return (
     <HStack my="4">
-      {platforms.map((platform) => (
+      {platforms?.map((platform) => (
         <Icon
           key={platform.id}
           mx="1px"
