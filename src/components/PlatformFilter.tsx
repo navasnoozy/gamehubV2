@@ -27,8 +27,9 @@ const PlatformFilter = ({selectedPlatform, onFilterByPlatform}: PropsType) => {
     <MenuRoot >
       <MenuTrigger asChild>
         <Button variant="outline">
-          <BsChevronDown />
+     
         {selectedPlatform ? selectedPlatform.name : 'Platforms'}
+        <BsChevronDown />
         </Button>
       </MenuTrigger>
       <MenuContent>

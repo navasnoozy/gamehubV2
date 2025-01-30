@@ -12,7 +12,7 @@ import {
   FaLinux,
   FaAndroid,
 } from "react-icons/fa";
-import { MdPhoneIphone } from "react-icons/md";
+import { MdPhoneIphone,MdDownloading } from "react-icons/md";
 import { SiNintendo, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { platformType } from "./hooks/useGames";
@@ -40,7 +40,7 @@ const PlatformIconsList = ({ platforms }: propsType) => {
           key={platform.id}
           mx="1px"
           color="gray.500"
-          as={iconMap[platform.slug.toLowerCase()]}
+          as={iconMap[platform.slug] || MdDownloading }
           fontSize="2xl"
         />
       ))}
