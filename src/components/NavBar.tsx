@@ -1,14 +1,17 @@
 // NavBar.tsx File
-
-import { HStack, Image, Text } from "@chakra-ui/react";
+interface PropsType {
+  onSearch : (searchInput: string) => void;
+}
+import { HStack, Image } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import Theme from "./theme";
+import SearchInput from "./SearchGames";
 
-const NavBar = () => {
+const NavBar = ({onSearch}:PropsType) => {
   return (
     <HStack justifyContent={"space-between"}>
       <Image src={logo} boxSize={"60px"}></Image>
-      <Text>search bar</Text>
+     <SearchInput onSearch={onSearch} />
       <Theme />
     </HStack>
   );

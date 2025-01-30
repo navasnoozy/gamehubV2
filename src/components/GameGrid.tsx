@@ -1,6 +1,6 @@
 // GamesGrid.tsx file
 interface PropsType {
-  gameQuery : GameQueryType
+  gameQuery: GameQueryType;
 }
 
 import { Heading, SimpleGrid } from "@chakra-ui/react";
@@ -12,9 +12,6 @@ import { GameQueryType } from "@/App";
 const GameGrid = ({ gameQuery }: PropsType) => {
   const { data, error, isLoading } = useGames(gameQuery);
   const SkeletonCount = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  
-  { error && console.log('error---', error) }
-  
 
   return (
     <>

@@ -12,16 +12,23 @@ export interface GameType {
   background_image: string;
   parent_platforms: { platform: platformType }[];
   metacritic: number;
-};
-
+}
 
 import { GameQueryType } from "@/App";
 import useData from "./useData";
 
-
 const useGames = (gameQuery: GameQueryType) =>
-  useData<GameType>("/games", { params: { genres: gameQuery.genre?.id , platforms: gameQuery.platform?.id,ordering:gameQuery.sortOrder } }, [
-    gameQuery
-  ]);
+  useData<GameType>(
+    "/games",
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
+        search : gameQuery.searchInput,
+      },
+    },
+    [gameQuery]
+  );
 
 export default useGames;
