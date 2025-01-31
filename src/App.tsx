@@ -31,28 +31,31 @@ const App = () => {
       }}
       templateColumns={{
         base: "1fr",
-        lg: "300px 1fr",
+        lg: "200px 1fr",
       }}
     >
       <GridItem
-      paddingX={4}
+        paddingX={4}
         paddingY={4}
         marginY={3}
+        marginX={2}
         border="solid"
         borderWidth="1px"
         borderRadius="md"
         borderColor="gray.100"
         area={"nav"}
       >
-        <NavBar onSearch={(searchInput)=>setGameQuery({...gameQuery,searchInput})} />
+        <NavBar
+          onSearch={(searchInput) =>
+            setGameQuery({ ...gameQuery, searchInput })
+          }
+        />
       </GridItem>
 
       <GridItem
-        border="solid"
-        borderWidth="1px"
-        borderRadius="md"
-        borderColor="gray.100"
-        paddingX={8}
+        paddingTop={8}
+        paddingLeft={4}
+        paddingRight={15}
         margin={2}
         hideBelow={"lg"}
         area={"sidebar"}
@@ -68,12 +71,12 @@ const App = () => {
         borderWidth="1px"
         borderRadius="md"
         borderColor="gray.100"
-        margin={2}
+        marginX={2}
         paddingY={2}
         area={"main"}
       >
         <Box spaceX={1} paddingX={8}>
-          <GameHeading gameQuery={gameQuery}/>
+          <GameHeading gameQuery={gameQuery} />
           <PlatformFilter
             selectedPlatform={gameQuery.platform}
             onFilterByPlatform={(platform) =>
