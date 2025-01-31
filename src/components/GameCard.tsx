@@ -13,7 +13,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card.Root borderRadius={10} overflow={"hidden"}>
+    <Card.Root  borderRadius={10} overflow={"hidden"}>
       <Image src={CropImageUrl(game.background_image)} />
       <Card.Body>
         <HStack justifyContent="space-between">

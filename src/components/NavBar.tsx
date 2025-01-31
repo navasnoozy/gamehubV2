@@ -10,7 +10,7 @@ import SearchInput from "./SearchGames";
 const NavBar = ({onSearch}:PropsType) => {
   return (
     <HStack justifyContent={"space-between"}>
-      <Image src={logo} boxSize={"60px"}></Image>
+      <Image boxShadow="md" src={logo} boxSize={"60px"}></Image>
      <SearchInput onSearch={onSearch} />
       <Theme />
     </HStack>

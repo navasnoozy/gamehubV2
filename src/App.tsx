@@ -42,7 +42,7 @@ const App = () => {
         border="solid"
         borderWidth="1px"
         borderRadius="md"
-        borderColor="gray.100"
+        borderColor={{base:'gray.200', _dark:'gray.600'}}
         area={"nav"}
       >
         <NavBar
@@ -53,6 +53,9 @@ const App = () => {
       </GridItem>
 
       <GridItem
+      borderLeft="solid"
+      borderLeftWidth="1px"
+      borderColor={{base:'gray.200', _dark:'gray.600'}}
         paddingTop={8}
         paddingLeft={4}
         paddingRight={15}
@@ -70,7 +73,7 @@ const App = () => {
         border="solid"
         borderWidth="1px"
         borderRadius="md"
-        borderColor="gray.100"
+        borderColor={{base:'gray.200', _dark:'gray.600'}}
         marginX={2}
         paddingY={2}
         area={"main"}

@@ -7,7 +7,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Provider>
+    <Provider >
       <ErrorBoundary>
       <App></App>
       </ErrorBoundary>
