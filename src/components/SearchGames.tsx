@@ -24,7 +24,8 @@ const SearchInput = ({ onSearch }: PropsType) => {
         startElement={<BsSearch />}
       >
         <Input
-          _hover={{ bg: "white" }}
+        
+          _hover={{ bg: "white", color:'black' }}
           transition="background 0.5s ease-in-out"
           ref={ref}
           variant="subtle"

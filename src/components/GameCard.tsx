@@ -13,7 +13,15 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card.Root  borderRadius={10} overflow={"hidden"}>
+    <Card.Root
+      transition="all 0.3s ease-in-out"
+      _hover={{
+        transform: "scale(1.05)",
+        boxShadow: "lg",
+      }}
+      borderRadius={10}
+      overflow={"hidden"}
+    >
       <Image src={CropImageUrl(game.background_image)} />
       <Card.Body>
         <HStack justifyContent="space-between">
@@ -24,7 +32,6 @@ const GameCard = ({ game }: Props) => {
         </HStack>
         <Card.Title fontSize="3xl">{game.name}</Card.Title>
         <StarRating rating_top={game.rating_top} />
-
       </Card.Body>
     </Card.Root>
   );
