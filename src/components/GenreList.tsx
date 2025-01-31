@@ -5,7 +5,7 @@ interface PropsType {
 }
 
 import { Button, HStack, Image, List } from "@chakra-ui/react";
-import useGenre, { GenreType } from "./hooks/useGenre";
+import useGenre, {GenreType} from "./hooks/useGenre";
 import CropImageUrl from "@/services/URLImageCrop";
 import { GenreSkeleton } from "./Skeletons";
 
