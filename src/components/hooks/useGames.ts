@@ -12,6 +12,7 @@ export interface GameType {
   background_image: string;
   parent_platforms: { platform: platformType }[];
   metacritic: number;
+  rating_top : number;
 }
 
 import { GameQueryType } from "@/App";
