@@ -1,10 +1,4 @@
 // useGames.tsx file
-export interface platformType {
-  id: number;
-  name: string;
-  slug: string;
-}
-
 export interface GameType {
   id: number;
   name: string;
@@ -18,20 +12,7 @@ import { GameQueryType } from "@/App";
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "@/services/api-Client";
 import { FetchedResType } from "@/services/api-Client";
-
-// const useGames = (gameQuery: GameQueryType) =>
-//   useData<GameType>(
-//     "/games",
-//     {
-//       params: {
-//         genres: gameQuery.genre?.id,
-//         platforms: gameQuery.platform?.id,
-//         ordering: gameQuery.sortOrder,
-//         search : gameQuery.searchInput,
-//       },
-//     },
-//     [gameQuery]
-//   );
+import { platformType } from "./usePlatforms";
 
 const useGames = (gameQuery:GameQueryType)=> useQuery<FetchedResType<GameType>, Error>({
   queryKey : ['games',gameQuery],

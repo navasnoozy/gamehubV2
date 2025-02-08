@@ -1,5 +1,5 @@
 // useplatform.tsx file
-interface platformType {
+export interface platformType {
     id: number;
     name: string;
     slug: string;

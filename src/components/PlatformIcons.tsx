@@ -15,7 +15,7 @@ import {
 import { MdPhoneIphone,MdDownloading } from "react-icons/md";
 import { SiNintendo, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { platformType } from "./hooks/useGames";
+import { platformType } from "./hooks/usePlatforms";
 import { IconType } from "react-icons";
 import { HStack, Icon } from "@chakra-ui/react";
 

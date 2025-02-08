@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/menu";
 import { Button } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import usePlatform from "./hooks/usePlatforms";
-import { platformType } from "./hooks/useGames";
+import usePlatform ,{ platformType } from "./hooks/usePlatforms";
+
 
 const PlatformFilter = ({selectedPlatform, onFilterByPlatform}: PropsType) => {
   const { data, error } = usePlatform();
