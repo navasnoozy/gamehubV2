@@ -16,8 +16,6 @@ import { BsChevronDown } from "react-icons/bs";
 import usePlatform from "./hooks/usePlatforms";
 import { platformType } from "./hooks/useGames";
 
-
-
 const PlatformFilter = ({selectedPlatform, onFilterByPlatform}: PropsType) => {
   const { data, error } = usePlatform();
 
@@ -33,7 +31,7 @@ const PlatformFilter = ({selectedPlatform, onFilterByPlatform}: PropsType) => {
         </Button>
       </MenuTrigger>
       <MenuContent>
-        {data.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem cursor="button" onClick={()=>onFilterByPlatform(platform)} key={platform.id} value={platform.name}>
             {platform.name}
           </MenuItem>

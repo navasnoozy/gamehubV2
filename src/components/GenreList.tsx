@@ -24,7 +24,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: PropsType) => {
       <Heading marginBottom='30px' whiteSpace="nowrap" fontSize="5xl">Genres</Heading>
       {isLoading &&
         loadingCount.map((skeleton) => <GenreSkeleton key={skeleton} />)}
-      {data.map((genre) => (
+      {data?.results.map((genre) => (
         <List.Item key={genre.id} as="ul">
           <HStack
             my={2}

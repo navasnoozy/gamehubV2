@@ -1,3 +1,8 @@
+export interface FetchedResType<T> {
+  count: number;
+  results: T[];
+}
+
 import  Axios  from "axios";
 
 export default Axios.create({

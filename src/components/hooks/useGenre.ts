@@ -1,4 +1,8 @@
-// useGenre.tsx file 
+// useGenre.tsx file
+
+
+import genre from "../data/genre";
+import { useQuery } from "@tanstack/react-query";
 
 export interface GenreType {
   id: number;
@@ -6,8 +10,17 @@ export interface GenreType {
   image_background: string;
 }
 
-import useData from "./useData";
+import apiClient from "@/services/api-Client";
+import { FetchedResType } from "@/services/api-Client";
 
-const useGenre = () => useData<GenreType>("/genres");
+const useGenre = () =>
+  useQuery({
+    queryKey: ["genre"],
+    queryFn: ()=> apiClient
+    .get<FetchedResType<GenreType>>('/genres')
+    .then(res=>res.data),
+    staleTime: 24 * 60 * 60 * 1000,//24h
+    initialData:{count: genre.length, results: genre},
+  });
 
 export default useGenre;
