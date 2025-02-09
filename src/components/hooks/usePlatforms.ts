@@ -5,16 +5,14 @@ export interface platformType {
     slug: string;
   }
 
-
 import { useQuery } from "@tanstack/react-query";
-import apiClient from "@/services/api-Client";
-import { FetchedResType } from "@/services/api-Client";
+import APIClient from "@/services/api-Client";
+
+const apiClient = new APIClient<platformType>('/platforms/lists/parents')
 
 const usePlatform = () => useQuery({
     queryKey : ['platformlist'],
-    queryFn : ()=> apiClient
-    .get<FetchedResType<platformType>>('/platforms/lists/parents')
-    .then(res=>res.data),
+    queryFn : apiClient.getAll ,
     staleTime: 24*60*60*1000 //24h
 })
 
