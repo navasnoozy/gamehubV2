@@ -14,11 +14,12 @@ import {
 import { Button } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatform ,{ platformType } from "./hooks/usePlatforms";
+import { useFindPlatform } from "./hooks/useFindSelected";
 
 
 const PlatformFilter = ({selectedPlatformId, onFilterByPlatform}: PropsType) => {
   const { data, error } = usePlatform();
-  const selectedPlatform = data?.results.find(p=> p.id === selectedPlatformId)
+  const selectedPlatform = useFindPlatform(selectedPlatformId)
 
   if (error) return null;
 
