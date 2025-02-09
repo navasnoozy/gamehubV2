@@ -2,7 +2,7 @@
 
 interface PropsType {
     onFilterByPlatform : (platform: platformType | null) => void;
-    selectedPlatform: platformType | null;
+    selectedPlatformId?: number;
 }
 
 import {
@@ -16,8 +16,9 @@ import { BsChevronDown } from "react-icons/bs";
 import usePlatform ,{ platformType } from "./hooks/usePlatforms";
 
 
-const PlatformFilter = ({selectedPlatform, onFilterByPlatform}: PropsType) => {
+const PlatformFilter = ({selectedPlatformId, onFilterByPlatform}: PropsType) => {
   const { data, error } = usePlatform();
+  const selectedPlatform = data?.results.find(p=> p.id === selectedPlatformId)
 
   if (error) return null;
 
@@ -26,7 +27,7 @@ const PlatformFilter = ({selectedPlatform, onFilterByPlatform}: PropsType) => {
       <MenuTrigger asChild>
         <Button variant="outline">
      
-        {selectedPlatform ? selectedPlatform.name : 'Platforms'}
+        {selectedPlatform ? selectedPlatform?.name : 'Platforms'}
         <BsChevronDown />
         </Button>
       </MenuTrigger>

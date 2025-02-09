@@ -12,7 +12,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { Fragment } from "react/jsx-runtime";
 
 const GameGrid = ({ gameQuery }: PropsType) => {
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetching } =
+  const { data, error, isLoading, hasNextPage, fetchNextPage} =
     useGames(gameQuery);
   const SkeletonCount = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 

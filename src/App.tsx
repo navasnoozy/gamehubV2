@@ -1,7 +1,7 @@
 // App.tsx file
 export interface GameQueryType {
-  genre: GenreType | null;
-  platform: platformType | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchInput: string;
 }
@@ -10,10 +10,8 @@ import { Grid, GridItem, Box } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { GenreType } from "./components/hooks/useGenre";
 import { useState } from "react";
 import PlatformFilter from "./components/PlatformFilter";
-import { platformType } from "./components/hooks/usePlatforms";
 import SortGames from "./components/SortGames";
 import GameHeading from "./components/GameHeading";
 
@@ -42,7 +40,7 @@ const App = () => {
         border="solid"
         borderWidth="1px"
         borderRadius="md"
-        borderColor={{base:'gray.200', _dark:'gray.600'}}
+        borderColor={{ base: "gray.200", _dark: "gray.600" }}
         area={"nav"}
       >
         <NavBar
@@ -53,9 +51,9 @@ const App = () => {
       </GridItem>
 
       <GridItem
-      borderLeft="solid"
-      borderLeftWidth="1px"
-      borderColor={{base:'gray.200', _dark:'gray.600'}}
+        borderLeft="solid"
+        borderLeftWidth="1px"
+        borderColor={{ base: "gray.200", _dark: "gray.600" }}
         paddingTop={8}
         paddingLeft={4}
         paddingRight={15}
@@ -64,8 +62,10 @@ const App = () => {
         area={"sidebar"}
       >
         <GenreList
-          selectedGenre={gameQuery.genre}
-          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          selectedGenreId={gameQuery.genreId}
+          onSelectGenre={(genre) =>
+            setGameQuery({ ...gameQuery, genreId: genre.id })
+          }
         />
       </GridItem>
 
@@ -73,7 +73,7 @@ const App = () => {
         border="solid"
         borderWidth="1px"
         borderRadius="md"
-        borderColor={{base:'gray.200', _dark:'gray.600'}}
+        borderColor={{ base: "gray.200", _dark: "gray.600" }}
         marginX={2}
         paddingY={2}
         area={"main"}
@@ -81,9 +81,9 @@ const App = () => {
         <Box spaceX={1} paddingX={8}>
           <GameHeading gameQuery={gameQuery} />
           <PlatformFilter
-            selectedPlatform={gameQuery.platform}
+            selectedPlatformId={gameQuery.platformId}
             onFilterByPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
+              setGameQuery({ ...gameQuery, platformId: platform?.id })
             }
           />
           <SortGames

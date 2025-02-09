@@ -1,7 +1,7 @@
 // GenreList.tsx file
 interface PropsType {
+  selectedGenreId?: number;
   onSelectGenre: (genre: GenreType) => void;
-  selectedGenre: GenreType | null;
 }
 
 import { Button, Heading, HStack, Image, List } from "@chakra-ui/react";
@@ -9,7 +9,7 @@ import useGenre, { GenreType } from "./hooks/useGenre";
 import CropImageUrl from "@/services/URLImageCrop";
 import { GenreSkeleton } from "./Skeletons";
 
-const GenreList = ({ selectedGenre, onSelectGenre }: PropsType) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: PropsType) => {
   const { data, isLoading, error } = useGenre();
 
   // if(!data) return;
@@ -28,7 +28,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: PropsType) => {
         <List.Item key={genre.id} as="ul">
           <HStack
             my={2}
-            borderBottomWidth={selectedGenre === genre ? "1px" : ""}
+            borderBottomWidth={selectedGenreId === genre.id ? "1px" : ""}
           >
             <Image
               boxSize="42px"
@@ -42,7 +42,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: PropsType) => {
               whiteSpace="normal"
               padding="2"
               width="full"
-              fontWeight={selectedGenre === genre ? "bold" : "normal"}
+              fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
               onClick={() => onSelectGenre(genre)}
               variant="plain"
               fontSize="lg"
