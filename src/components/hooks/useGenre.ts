@@ -10,6 +10,7 @@ export interface GenreType {
 
 import APIClient from "@/services/api-Client";
 import genre from "../data/genre";
+import ms from "ms";
 
 const apiClient = new APIClient<GenreType>('/genres')
 
@@ -17,7 +18,7 @@ const useGenre = () =>
   useQuery({
     queryKey: ["genre"],
     queryFn: apiClient.getAll,
-    staleTime: 24 * 60 * 60 * 1000,//24h
+    staleTime: ms("24h"),
     initialData:genre
   });
 
