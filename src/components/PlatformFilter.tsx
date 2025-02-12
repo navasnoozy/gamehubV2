@@ -1,9 +1,3 @@
-// PlatformFilter.tsx file
-
-interface PropsType {
-    onFilterByPlatform : (platform: platformType | null) => void;
-    selectedPlatformId?: number;
-}
 
 import {
   MenuContent,
@@ -13,12 +7,17 @@ import {
 } from "@/components/ui/menu";
 import { Button } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import usePlatform ,{ platformType } from "./hooks/usePlatforms";
+import usePlatform  from "./hooks/usePlatforms";
 import { useFindPlatform } from "./hooks/useFindSelected";
+import useGameQueryStore from "@/store";
 
 
-const PlatformFilter = ({selectedPlatformId, onFilterByPlatform}: PropsType) => {
+const PlatformFilter = () => {
   const { data, error } = usePlatform();
+  const setPlatformId = useGameQueryStore(s=>s.setPlatform)
+  const selectedPlatformId = useGameQueryStore(s=>s.gameQuery.platformId);
+  
+  //finding selected platform with id
   const selectedPlatform = useFindPlatform(selectedPlatformId)
 
   if (error) return null;
@@ -34,7 +33,7 @@ const PlatformFilter = ({selectedPlatformId, onFilterByPlatform}: PropsType) => 
       </MenuTrigger>
       <MenuContent>
         {data?.results.map((platform) => (
-          <MenuItem cursor="button" onClick={()=>onFilterByPlatform(platform)} key={platform.id} value={platform.name}>
+          <MenuItem cursor="button" onClick={()=>setPlatformId(platform.id)} key={platform.id} value={platform.name}>
             {platform.name}
           </MenuItem>
         ))}

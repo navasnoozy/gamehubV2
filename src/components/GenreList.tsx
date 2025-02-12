@@ -1,16 +1,14 @@
-// GenreList.tsx file
-interface PropsType {
-  selectedGenreId?: number;
-  onSelectGenre: (genre: GenreType) => void;
-}
 
 import { Button, Heading, HStack, Image, List } from "@chakra-ui/react";
-import useGenre, { GenreType } from "./hooks/useGenre";
+import useGenre from "./hooks/useGenre";
 import CropImageUrl from "@/services/URLImageCrop";
 import { GenreSkeleton } from "./Skeletons";
+import useGameQueryStore from "@/store";
 
-const GenreList = ({ selectedGenreId, onSelectGenre }: PropsType) => {
+const GenreList = () => {
   const { data, isLoading, error } = useGenre();
+  const selectedGenreId = useGameQueryStore(s=>s.gameQuery.genreId);
+  const setGenreId = useGameQueryStore(s=>s.setGenre)
 
   // if(!data) return;
   if (error) return null;
@@ -43,7 +41,7 @@ const GenreList = ({ selectedGenreId, onSelectGenre }: PropsType) => {
               padding="2"
               width="full"
               fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
-              onClick={() => onSelectGenre(genre)}
+              onClick={() => setGenreId(genre.id)}
               variant="plain"
               fontSize="lg"
               mx={1}

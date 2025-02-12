@@ -1,9 +1,4 @@
-// GamesGrid.tsx file
-interface PropsType {
-  gameQuery: GameQueryType;
-}
 
-import { GameQueryType } from "@/App";
 import { Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import useGames from "./hooks/useGames";
@@ -11,9 +6,10 @@ import { GameCardSkeletons } from "./Skeletons";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Fragment } from "react/jsx-runtime";
 
-const GameGrid = ({ gameQuery }: PropsType) => {
+const GameGrid = () => {
+
   const { data, error, isLoading, hasNextPage, fetchNextPage} =
-    useGames(gameQuery);
+    useGames();
   const SkeletonCount = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const fetchedGameCount =
