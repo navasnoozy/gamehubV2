@@ -3,6 +3,7 @@ import {  SkeletonText } from "@/components/ui/skeleton";
 import {  HStack, Skeleton, Stack } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import {  Card } from "@chakra-ui/react"
+import ExpandableText from "@/components/ExpandableText";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -24,7 +25,7 @@ const GameDetailsPage = () => {
     <Card.Root gap={5}>
      <Card.Title fontSize='5xl'>{game.name}</Card.Title>
      <Card.Description>
-      {game.description_raw}
+      <ExpandableText>{game.description_raw}</ExpandableText>
      </Card.Description>
 
     </Card.Root>
