@@ -1,7 +1,6 @@
 import GameGrid from "@/components/GameGrid";
 import GameHeading from "@/components/GameHeading";
 import GenreList from "@/components/GenreList";
-import NavBar from "@/components/NavBar";
 import PlatformFilter from "@/components/PlatformFilter";
 import SortGames from "@/components/SortGames";
 import { Grid, GridItem, Box } from "@chakra-ui/react";

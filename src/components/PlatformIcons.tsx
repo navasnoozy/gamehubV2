@@ -17,7 +17,8 @@ import { SiNintendo, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { platformType } from "./hooks/usePlatforms";
 import { IconType } from "react-icons";
-import { HStack, Icon } from "@chakra-ui/react";
+import {  HStack, Icon } from "@chakra-ui/react";
+import { useColorModeValue } from "./ui/color-mode";
 
 const PlatformIconsList = ({ platforms }: propsType) => {
   const iconMap: { [key: string]: IconType } = {
@@ -33,10 +34,12 @@ const PlatformIconsList = ({ platforms }: propsType) => {
     sega: SiSega,
   };
 
+  const haverColor = useColorModeValue('black', 'white')
+
   return (
     <HStack my="4">
       {platforms?.map((platform) => (
-        <Icon
+        <Icon transition='all 0.05s ease-in-out' _hover={{color:haverColor}}
           key={platform.id}
           mx="1px"
           color="gray.500"
