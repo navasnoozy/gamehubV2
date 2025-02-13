@@ -1,27 +1,15 @@
-// useGames.tsx file
-export interface GameType {
-  id: number;
-  name: string;
-  slug: string;
-  description_raw:string;
-  background_image: string;
-  parent_platforms: { platform: platformType }[];
-  metacritic: number;
-  rating_top: number;
-}
-
 import { useInfiniteQuery } from "@tanstack/react-query";
 import APIClient, { FetchedResType } from "@/services/api-Client";
-import { platformType } from "./usePlatforms";
 import ms from "ms";
 import useGameQueryStore from "@/store";
+import { GameType } from "@/entities/GameType";
 
 const apiClient = new APIClient<GameType>("games");
 
-const useGames = () =>{
-  const gameQuery = useGameQueryStore(s=>s.gameQuery)
+const useGames = () => {
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
 
-  return  useInfiniteQuery<FetchedResType<GameType>, Error>({
+  return useInfiniteQuery<FetchedResType<GameType>, Error>({
     queryKey: ["games", gameQuery],
     queryFn: ({ pageParam }) =>
       apiClient.getAll({
@@ -37,9 +25,8 @@ const useGames = () =>{
     getNextPageParam: (lastPage, allPage) => {
       return lastPage.next ? allPage.length + 1 : undefined;
     },
-    staleTime: ms('24h')
+    staleTime: ms("24h"),
   });
-}
- 
+};
 
 export default useGames;
