@@ -10,7 +10,7 @@ const GameMetaData = ({ heading, children }: PropsType) => {
   return (
     <>
       <Heading color='gray.500'>{heading}</Heading>
-      <dd>{children} </dd>
+      {children}
     </>
   );
 };
