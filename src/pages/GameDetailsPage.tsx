@@ -6,6 +6,7 @@ import { Card } from "@chakra-ui/react";
 import ExpandableText from "@/components/ExpandableText";
 import GameAttributes from "@/components/GameAttributes";
 import GameTrailer from "@/components/GameTrailer";
+import GameScreenshots from "@/components/GameScreenshots";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -24,7 +25,7 @@ const GameDetailsPage = () => {
   if (error || !game) throw error;
 
   return (
-
+<>
       <Card.Root gap={5} flexDirection="row" overflow="hidden">
         <Box>
           <Card.Body>
@@ -38,7 +39,8 @@ const GameDetailsPage = () => {
 
         <GameTrailer gameId={game.id}></GameTrailer>
       </Card.Root>
- 
+      <GameScreenshots gameId={game.id} />
+      </>
   );
 };
 
