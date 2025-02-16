@@ -16,7 +16,7 @@ const GameHeading = () => {
   } Games`;
 
   return (
-    <Heading marginY={8} fontSize="5xl">
+    <Heading marginBottom='10' fontSize="5xl">
       {heading}
     </Heading>
   );

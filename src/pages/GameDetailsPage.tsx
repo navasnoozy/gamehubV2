@@ -1,8 +1,15 @@
 import useGameDetails from "@/components/hooks/useGameDetails";
 import { SkeletonText } from "@/components/ui/skeleton";
-import { Box, HStack, Skeleton, Stack } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  Heading,
+  HStack,
+  SimpleGrid,
+  Skeleton,
+  Stack
+} from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { Card } from "@chakra-ui/react";
 import ExpandableText from "@/components/ExpandableText";
 import GameAttributes from "@/components/GameAttributes";
 import GameTrailer from "@/components/GameTrailer";
@@ -25,22 +32,29 @@ const GameDetailsPage = () => {
   if (error || !game) throw error;
 
   return (
-<>
-      <Card.Root gap={5} flexDirection="row" overflow="hidden">
-        <Box>
-          <Card.Body>
-            <Card.Title fontSize="5xl">{game.name}</Card.Title>
-            <Card.Description>
-              <ExpandableText>{game.description_raw}</ExpandableText>
-            </Card.Description>
-            <GameAttributes game={game} />
-          </Card.Body>
-        </Box>
+    <>
+    <SimpleGrid
+      padding="5"
+      columns={{ base: 1, lg: 2 }}
+      border="solid"
+      borderColor={{ base: "gray.200", _dark: "gray.600" }}
+      borderWidth="1px"
+      borderRadius="md"
+     
+   
+    >
+      <GridItem paddingY={6} spaceY={4}  >
+        <Heading paddingBottom='30px' fontSize="5xl">{game.name}</Heading>
+        <ExpandableText >{game.description_raw}</ExpandableText>
+        <GameAttributes game={game} />
+      </GridItem>
 
+      <GridItem display='flex' paddingX='3'  flexDirection='column'  gap='2'   >
         <GameTrailer gameId={game.id}></GameTrailer>
-      </Card.Root>
-      <GameScreenshots gameId={game.id} />
-      </>
+        <GameScreenshots gameId={game.id} />
+      </GridItem>
+    </SimpleGrid>
+    </>
   );
 };
 

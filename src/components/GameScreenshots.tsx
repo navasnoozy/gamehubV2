@@ -2,7 +2,7 @@ interface PropsType {
   gameId: number;
 }
 
-import { SimpleGrid, Spinner, Image, Flex } from "@chakra-ui/react";
+import {  Spinner, Image, Flex } from "@chakra-ui/react";
 import useScreenshots from "./hooks/useScreenshots";
 
 const GameScreenshots = ({ gameId }: PropsType) => {
@@ -15,10 +15,10 @@ const GameScreenshots = ({ gameId }: PropsType) => {
 
   return (
     <Flex
-    wrap="wrap" justify="center" gap={4}
+    wrap="wrap" justify="center" justifyContent='space-between' gap={4}
   >
      {data?.results.map((file) => (
-       <Image key={file.id} rounded="md"    w={["100%", "48%", "24%"]} src={file.image} />
+       <Image key={file.id} rounded="md"    w={["100%", "48%", "48%"]} src={file.image} />
      ))}
   </Flex>
   

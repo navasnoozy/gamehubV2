@@ -1,4 +1,3 @@
-
 import { Button, Heading, HStack, Image, List } from "@chakra-ui/react";
 import useGenre from "./hooks/useGenre";
 import CropImageUrl from "@/services/URLImageCrop";
@@ -7,8 +6,8 @@ import useGameQueryStore from "@/store";
 
 const GenreList = () => {
   const { data, isLoading, error } = useGenre();
-  const selectedGenreId = useGameQueryStore(s=>s.gameQuery.genreId);
-  const setGenreId = useGameQueryStore(s=>s.setGenre)
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setGenreId = useGameQueryStore((s) => s.setGenre);
 
   // if(!data) return;
   if (error) return null;
@@ -19,15 +18,21 @@ const GenreList = () => {
 
   return (
     <List.Root>
-      <Heading marginBottom='30px' whiteSpace="nowrap" fontSize="5xl">Genres</Heading>
+      <Heading marginBottom="30px" whiteSpace="nowrap" fontSize="5xl">
+        Genres
+      </Heading>
       {isLoading &&
         loadingCount.map((skeleton) => <GenreSkeleton key={skeleton} />)}
       {data?.results.map((genre) => (
-        <List.Item key={genre.id} as="ul">
-          <HStack
-            my={2}
-            borderBottomWidth={selectedGenreId === genre.id ? "1px" : ""}
-          >
+        <List.Item
+          key={genre.id}
+          as="ul"
+          transition='all .3s ease-in' 
+          my={selectedGenreId === genre.id ? "15px" : "10px"}
+          scale={selectedGenreId === genre.id ? '1.2': ''}
+          padding={selectedGenreId === genre.id ? '4': ''}
+        >
+          <HStack>
             <Image
               boxSize="42px"
               borderRadius="22px"

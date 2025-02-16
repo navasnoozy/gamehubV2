@@ -1,5 +1,5 @@
 import useGameTrailer from "./hooks/useGameTrailer";
-import { Skeleton } from "@chakra-ui/react";
+import { Box, Skeleton } from "@chakra-ui/react";
 
 interface PropsType {
   gameId: number;
@@ -15,7 +15,18 @@ const GameTrailer = ({ gameId }: PropsType) => {
   const videoLink = data?.results[0];
 
   return videoLink ? (
-    <video src={videoLink.data[480]} poster={videoLink.preview} controls />
+    <Box rounded='md' display='flex'  justifyContent='center' width="100%"
+    height="2/3"
+    position="relative"
+    overflow="hidden" >
+  <video style={{
+          width: '100%',
+          height: 'auto',
+          borderRadius:'10px',
+      
+        }}  src={videoLink.data[480]} poster={videoLink.preview} controls />
+    </Box>
+  
   ) : null;
 };
 

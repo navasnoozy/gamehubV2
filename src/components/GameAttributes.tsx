@@ -9,7 +9,7 @@ interface PropsType {
 
 const GameAttributes = ({ game }: PropsType) => {
   return (
-    <SimpleGrid columns={2} as='dl' gap={6}>
+    <SimpleGrid columns={2} as='dl' gap={6} >
       <DataList.Root>
         <DataList.Item>
           <GameMetaData heading="Platform">

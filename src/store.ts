@@ -10,6 +10,7 @@ interface useGameStoreType {
   setPlatform: (platformId: number) => void;
   setSortOrder: (sortOrder: string) => void;
   setSearchInput: (searchInput: string ) => void;
+  resetFilters: ()=> void;
 };
 
 import { create } from 'zustand'
@@ -20,7 +21,8 @@ const useGameQueryStore = create<useGameStoreType>((set)=>({
     setSearchInput:(searchInput)=> set(()=>({gameQuery:{searchInput}})),
     setGenre: (genreId)=> set((store)=>({gameQuery:{...store.gameQuery,genreId}})),
     setPlatform:(platformId)=> set((store)=> ({gameQuery:{...store.gameQuery,platformId}})),
-    setSortOrder:(sortOrder)=> set((store)=> ({gameQuery:{...store.gameQuery,sortOrder}}))
+    setSortOrder:(sortOrder)=> set((store)=> ({gameQuery:{...store.gameQuery,sortOrder}})),
+    resetFilters: ()=> set(()=>({gameQuery:{}})),
 }));
 
 export default useGameQueryStore 
