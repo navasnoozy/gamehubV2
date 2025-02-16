@@ -14,7 +14,7 @@ const GameAttributes = ({ game }: PropsType) => {
         <DataList.Item>
           <GameMetaData heading="Platform">
             {game.parent_platforms.map(({ platform }) => (
-              <DataList.ItemLabel key={platform.id}>
+              <DataList.ItemLabel textStyle='md' key={platform.id}>
                 {platform.name}
               </DataList.ItemLabel>
             ))}

@@ -22,6 +22,7 @@ const GameTrailer = ({ gameId }: PropsType) => {
   <video style={{
           width: '100%',
           height: 'auto',
+          objectFit:'cover',
           borderRadius:'10px',
       
         }}  src={videoLink.data[480]} poster={videoLink.preview} controls />

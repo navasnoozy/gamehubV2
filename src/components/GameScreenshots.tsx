@@ -18,7 +18,7 @@ const GameScreenshots = ({ gameId }: PropsType) => {
     wrap="wrap" justify="center" justifyContent='space-between' gap={4}
   >
      {data?.results.map((file) => (
-       <Image key={file.id} rounded="md"    w={["100%", "48%", "48%"]} src={file.image} />
+       <Image key={file.id} rounded="md"    w={["100%", "48%",]} src={file.image} />
      ))}
   </Flex>
   

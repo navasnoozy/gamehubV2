@@ -9,7 +9,7 @@ interface PropsType {
 const GameMetaData = ({ heading, children }: PropsType) => {
   return (
     <>
-      <Heading color='gray.500'>{heading}</Heading>
+      <Heading textStyle='2xl' color='gray.500'>{heading}</Heading>
       {children}
     </>
   );

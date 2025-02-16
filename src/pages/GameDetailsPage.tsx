@@ -44,7 +44,7 @@ const GameDetailsPage = () => {
    
     >
       <GridItem paddingY={6} spaceY={4}  >
-        <Heading paddingBottom='30px' fontSize="5xl">{game.name}</Heading>
+        <Heading paddingBottom='30px' lineClamp="2" whiteSpace='normal' textStyle="4xl">{game.name}</Heading>
         <ExpandableText >{game.description_raw}</ExpandableText>
         <GameAttributes game={game} />
       </GridItem>
