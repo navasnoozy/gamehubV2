@@ -8,7 +8,7 @@ interface PropsType {
 const GameTrailer = ({ gameId }: PropsType) => {
   const { data, isLoading, error } = useGameTrailer(gameId);
 
-  if (isLoading) return <Skeleton height="100em" width="200px" />;
+  if (isLoading) return <Skeleton margin='5' height="30vh" width="100%" />;
 
   if (error) throw error;
 

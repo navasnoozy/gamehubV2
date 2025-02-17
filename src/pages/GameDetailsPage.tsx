@@ -21,9 +21,9 @@ const GameDetailsPage = () => {
 
   if (isLoading)
     return (
-      <Stack gap="6" maxW="xs">
-        <Skeleton height="200px" />
-        <HStack width="full">
+      <Stack gap="6" width='100%' >
+        <Skeleton height="30vh"  />
+        <HStack maxWidth='40%'>
           <SkeletonText noOfLines={3} />
         </HStack>
       </Stack>

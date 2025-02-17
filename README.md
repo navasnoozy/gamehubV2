@@ -10,6 +10,10 @@ GameHub is a game discovery application built using React, TypeScript, Chakra UI
 - **Platform Filter**: Allows users to filter games by platform.
 - **Search**: Search games by name or keyword.
 - **Responsive Design**: The app is fully responsive and adapts to various screen sizes.
+- **Infinite Scrolling**: Seamless loading of game lists to improve user experience.
+- **Optimized Data Fetching**: With React Query, data handling is faster and more efficient.
+- **Enhanced Routing**: Simplified navigation using react-router-dom for smoother transitions.
+- **Robust State Management**: Zustand now powers our state logic for better performance.
 
 ## Technologies Used
 
