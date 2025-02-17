@@ -1,7 +1,6 @@
 import useGameDetails from "@/components/hooks/useGameDetails";
 import { SkeletonText } from "@/components/ui/skeleton";
 import {
-  Grid,
   GridItem,
   Heading,
   HStack,

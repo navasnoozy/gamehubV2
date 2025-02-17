@@ -1,5 +1,5 @@
+# GameHub V2
 
-# GameHub
 
 GameHub is a game discovery application built using React, TypeScript, Chakra UI, and Vite. The app allows users to explore a wide range of video games, filter them by genre and platform, and view detailed game information such as ratings, platforms, and game scores.
 
@@ -23,42 +23,67 @@ GameHub is a game discovery application built using React, TypeScript, Chakra UI
 - **Vite**: For fast and optimized development build.
 - **Axios**: For making API requests to fetch game data.
 - **React Icons**: For adding icons to the platform filters.
+- **TanStack React Query**: For efficient data fetching and caching
+- **React Router DOM**: For seamless navigation
+- **Zustand**: For state management
+- **MS**: For easy-readable time formatting
+
 
 ## File Structure
 
 ```
-gamehub/
+GAMEHUB++/
 ├── src/
 │   ├── assets/
-│   │   ├── logo.webp
-│   │   └── noImgThumbnail.jpg
 │   ├── components/
+│   │   ├── data/
+│   │   │   └── genre.ts
 │   │   ├── hooks/
-│   │   │   ├── useData.ts
+│   │   │   ├── useFindSelected.ts
+│   │   │   ├── useGameDetails.ts
 │   │   │   ├── useGames.ts
+│   │   │   ├── useGameTrailer.ts
 │   │   │   ├── useGenre.ts
-│   │   │   └── usePlatforms.ts
+│   │   │   ├── usePlatforms.ts
+│   │   │   └── useScreenshots.ts
 │   │   ├── ui/
-│   │   ├── ErrorBoundary.tsx
-│   │   ├── GameCard.tsx
-│   │   ├── GameGrid.tsx
-│   │   ├── GameHeading.tsx
-│   │   ├── GenreList.tsx
-│   │   ├── MetaCriticScore.tsx
-│   │   ├── NavBar.tsx
-│   │   ├── PlatformFilter.tsx
-│   │   ├── PlatformIcons.tsx
-│   │   ├── SearchGames.tsx
-│   │   ├── Skeletons.tsx
-│   │   ├── SortGames.tsx
-│   │   └── StartRating.tsx
+│   │   │   ├── ErrorBoundary.tsx
+│   │   │   ├── ExpandableText.tsx
+│   │   │   ├── GameAttributes.tsx
+│   │   │   ├── GameCard.tsx
+│   │   │   ├── GameGrid.tsx
+│   │   │   ├── GameHeading.tsx
+│   │   │   ├── GameMetaData.tsx
+│   │   │   ├── GameScreenshots.tsx
+│   │   │   ├── GenreList.tsx
+│   │   │   ├── MetaCriticScore.tsx
+│   │   │   ├── NavBar.tsx
+│   │   │   ├── PlatformFilter.tsx
+│   │   │   ├── PlatformIcons.tsx
+│   │   │   ├── SearchGames.tsx
+│   │   │   ├── Skeletons.tsx
+│   │   │   ├── SortGames.tsx
+│   │   │   └── StartRating.tsx
+│   ├── entities/
+│   │   ├── GameTrailerType.ts
+│   │   ├── GameType.ts
+│   │   ├── GenreType.ts
+│   │   ├── PlatformType.ts
+│   │   ├── PublisherType.ts
+│   │   └── ScreenshotType.ts
+│   ├── pages/
+│   │   ├── ErrorPage.tsx
+│   │   ├── GameDetailsPage.tsx
+│   │   ├── HomePage.tsx
+│   │   └── Layout.tsx
 │   ├── services/
 │   │   ├── api-Client.ts
-│   │   └── URLImageCrop.tsx
-│   ├── App.tsx
+│   │   ├── URLImageCrop.tsx
+│   │   ├── router.tsx
+│   │   ├── store.ts
 │   ├── index.css
 │   ├── main.tsx
-│   └── vite-env.d.ts
+│   ├── vite-env.d.ts
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
@@ -69,6 +94,7 @@ gamehub/
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
+
 
 ```
 
@@ -100,9 +126,9 @@ gamehub/
 
    The app will be accessible at `http://localhost:3000`.
 
-## API  
- baseURL: `https://api.rawg.io/api`,
+## API
 
+baseURL: `https://api.rawg.io/api`,
 
 ## Development
 
